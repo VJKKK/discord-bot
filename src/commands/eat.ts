@@ -1,4 +1,4 @@
-import { ActionRowBuilder, ButtonBuilder, ComponentType, SlashCommandBuilder } from 'discord.js';
+import { ActionRowBuilder, ButtonBuilder, ButtonStyle, ComponentType, SlashCommandBuilder } from 'discord.js';
 
 import menu from '../../meun.json';
 import oldMenu from '../../oldm.json';
@@ -10,23 +10,28 @@ const row1 = new ActionRowBuilder<ButtonBuilder>()
     new ButtonBuilder()
       .setCustomId('eat-option-1')
       .setEmoji('1️⃣')
-      .setLabel('飯食'),
+      .setLabel('飯食')
+      .setStyle(ButtonStyle.Secondary),
     new ButtonBuilder()
       .setCustomId('eat-option-2')
       .setEmoji('2️⃣')
-      .setLabel('麵食'),
+      .setLabel('麵食')
+      .setStyle(ButtonStyle.Secondary),
     new ButtonBuilder()
       .setCustomId('eat-option-3')
       .setEmoji('3️⃣')
-      .setLabel('鍋燒'),
+      .setLabel('鍋燒')
+      .setStyle(ButtonStyle.Secondary),
     new ButtonBuilder()
       .setCustomId('eat-option-4')
       .setEmoji('4️⃣')
-      .setLabel('炸物'),
+      .setLabel('炸物')
+      .setStyle(ButtonStyle.Secondary),
     new ButtonBuilder()
       .setCustomId('eat-option-5')
       .setEmoji('5️⃣')
-      .setLabel('老麥(單點)'),
+      .setLabel('老麥(單點)')
+      .setStyle(ButtonStyle.Secondary),
   );
 
 const row2 = new ActionRowBuilder<ButtonBuilder>()
@@ -34,7 +39,8 @@ const row2 = new ActionRowBuilder<ButtonBuilder>()
     new ButtonBuilder()
       .setCustomId('eat-option-6')
       .setEmoji('6️⃣')
-      .setLabel('老麥(套餐)'),
+      .setLabel('老麥(套餐)')
+      .setStyle(ButtonStyle.Secondary),
   );
 
 export default {
@@ -48,10 +54,8 @@ export default {
     });
 
     const collector = sent.createMessageComponentCollector({
-      // 過濾使用者
       filter: (i) => i.user.id === interaction.user.id,
       componentType: ComponentType.Button,
-      max: 1,
     });
 
     collector.on('collect', async (inter) => {
@@ -103,7 +107,7 @@ export default {
         }
 
         default: {
-          await await inter.update('未知的選項');
+          await inter.update('未知的選項');
           break;
         }
       }

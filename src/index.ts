@@ -1,8 +1,8 @@
 import { Client, Events, GatewayIntentBits, StringSelectMenuBuilder, ActionRowBuilder, } from 'discord.js';
-import fs from 'fs';
+
+import commands from './commands';
 
 import 'dotenv/config';
-import commands from './commands';
 
 // Create a new client instance
 const client = new Client({
@@ -26,8 +26,7 @@ client.on('ready', (c) => {
   // 註冊指令
   const data = commands.map(v => v.builder);
   for (const guild of [
-    c.guilds.cache.get('763690576209903627'),
-    c.guilds.cache.get('763690576209903627'),
+    c.guilds.cache.get('1319472790222409808'),
   ]) {
     guild?.commands.set(data);
   }
