@@ -42,17 +42,5 @@ client.on('interactionCreate', async (interaction) => {
   command.execute(interaction);
 });
 
-client.on('interactionCreate', (interaction) => {
-  if (!interaction.isStringSelectMenu()) return;
-
-  if (interaction.customId === 'example_menu') {
-    const selected = interaction.values[0]; // 獲取選中的值
-    interaction.update({
-      content: selected,
-      components: [],
-    });
-  }
-});
-
 // Log in to Discord with your client's token
 client.login(process.env.DISCORD_TOKEN);
