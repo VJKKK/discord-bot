@@ -1,6 +1,7 @@
-import type { Awaitable, ChatInputCommandInteraction, SharedSlashCommand } from 'discord.js';
 import eat from './eat';
 import food from './food';
+
+import type { Awaitable, ChatInputCommandInteraction, SharedSlashCommand } from 'discord.js';
 
 export interface Command {
   builder: SharedSlashCommand;
